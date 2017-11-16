@@ -1,0 +1,623 @@
+﻿@{
+    ViewBag.Title = "Main";
+}
+
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+        <div class="col-lg-4">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <label>Ticket Type </label>
+                    <select id="tickettypeID" class="form-control required" name="TicketType">
+                        <option value="">---Please Select One---</option>
+                        @foreach (var item in ISAT.Business.TicketTypeInfoList.GetTicketTypeInfoList())
+                        {
+                            <option value="@item.TicketTypeName">@item.TicketTypeName</option>
+                        }
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-4">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>Jumlah Tiket Day to Day</h5>
+                    <div class="ibox-tools">
+                        <a class="collapse-link">
+                            <i class="fa fa-chevron-up"></i>
+                        </a>
+                        <a class="close-link">
+                            <i class="fa fa-times"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="ibox-content">
+                    <div id="morris-bar-chart"></div>
+                    <center>@DateTime.Now.ToString("MMMMM yyyy")</center>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>Jumlah Open Tiket Day to Day</h5>
+                    <div class="ibox-tools">
+                        <a class="collapse-link">
+                            <i class="fa fa-chevron-up"></i>
+                        </a>
+                        <a class="close-link">
+                            <i class="fa fa-times"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="ibox-content">
+                    <div id="morris-bar-chart2"></div>
+                    <center>@DateTime.Now.ToString("MMMMM yyyy")</center>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>Jumlah Close Tiket Day to Day</h5>
+                    <div class="ibox-tools">
+                        <a class="collapse-link">
+                            <i class="fa fa-chevron-up"></i>
+                        </a>
+
+                        <a class="close-link">
+                            <i class="fa fa-times"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="ibox-content">
+                    <div id="morris-bar-chart3"></div>
+                    <center>@DateTime.Now.ToString("MMMMM yyyy")</center>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    @{
+        ISAT.Business.AgentInfo info = ISAT.Business.AgentInfo.GetAgentInfo(User.Identity.Name);
+        if (info.IsSupervisor)
+        {
+            <div class="row">
+                <div class="col-lg-4">
+                    <div class="ibox float-e-margins">
+                        <div class="ibox-title">
+                            <h5>Jumlah Tiket Month to Month</h5>
+                            <div class="ibox-tools">
+                                <a class="collapse-link">
+                                    <i class="fa fa-chevron-up"></i>
+                                </a>
+                                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                    <i class="fa fa-wrench"></i>
+                                </a>
+                                <ul class="dropdown-menu dropdown-user">
+                                    <li>
+                                        <a href="#">Config option 1</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Config option 2</a>
+                                    </li>
+                                </ul>
+                                <a class="close-link">
+                                    <i class="fa fa-times"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="ibox-content">
+                            <div id="morris-bar-chart4"></div>
+                            <center>@DateTime.Now.ToString("yyyy")</center>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="ibox float-e-margins">
+                        <div class="ibox-title">
+                            <h5>Jumlah Open Tiket Month to Month</h5>
+                            <div class="ibox-tools">
+                                <a class="collapse-link">
+                                    <i class="fa fa-chevron-up"></i>
+                                </a>
+                                <a class="close-link">
+                                    <i class="fa fa-times"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="ibox-content">
+                            <div id="morris-bar-chart5"></div>
+                            <center>@DateTime.Now.ToString("yyyy")</center>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="ibox float-e-margins">
+                        <div class="ibox-title">
+                            <h5>Jumlah Tiket Close Month to Month</h5>
+                            <div class="ibox-tools">
+                                <a class="collapse-link">
+                                    <i class="fa fa-chevron-up"></i>
+                                </a>
+                                <a class="close-link">
+                                    <i class="fa fa-times"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="ibox-content">
+                            <div id="morris-bar-chart6"></div>
+                            <center>@DateTime.Now.ToString("yyyy")</center>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    }
+
+
+
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>All Ticket Open vs Closed Ticket on Current Month</h5>
+                    <div class="ibox-tools">
+                        <a class="collapse-link">
+                            <i class="fa fa-chevron-up"></i>
+                        </a>
+                        <a class="close-link">
+                            <i class="fa fa-times"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="ibox-content">
+                    <div id="morris-donut-chart"></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>Recent Ticket Update</h5>
+                    <div class="ibox-tools">
+                        <a class="collapse-link">
+                            <i class="fa fa-chevron-up"></i>
+                        </a>
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                            <i class="fa fa-wrench"></i>
+                        </a>
+                        <ul class="dropdown-menu dropdown-user">
+                            <li>
+                                <a href="#">Config option 1</a>
+                            </li>
+                            <li>
+                                <a href="#">Config option 2</a>
+                            </li>
+                        </ul>
+                        <a class="close-link">
+                            <i class="fa fa-times"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="ibox-content">
+                    <table id="myGrid" class="table">
+                        <thead>
+                            <tr>
+                                <th>Ticket ID</th>
+                                <th>Status</th>
+                                <th>Ticket Owner</th>
+                                <th>Updated Date</th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="hitCount" style="font-size:200px;"></div>
+</div>
+
+@section Styles {
+    @Styles.Render("~/plugins/morrisStyles")
+    @Styles.Render("~/Content/plugins/dataTables/dataTablesStyles")
+}
+
+@section Scripts {
+    @Scripts.Render("~/plugins/morris")
+    @Scripts.Render("~/plugins/flot")
+    @Scripts.Render("~/plugins/dataTables")
+    @Scripts.Render("~/plugins/rickshaw")
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            //var table = $('#myGrid').DataTable();
+
+            $.ajax({
+                type: 'GET',
+                url: '@Url.Action("DayToDay")',
+                dataType: 'json',
+                success: function (data) {
+                    getDayToDay(data);
+                    getDayToDayOpen(data);
+                    getDayToDayClosed(data);
+                },
+                error: function (err) {
+                    //alert(err);
+                }
+            });
+
+
+            $.ajax({
+                type: 'GET',
+                url: '@Url.Action("MonthToMonth")',
+                dataType: 'json',
+                success: function (data) {
+                    getMonthToMonth(data);
+                    getMonthToMonthOpen(data);
+                    getMonthToMonthClosed(data);
+                },
+                error: function (err) {
+                    //alert(err);
+                }
+            });
+
+
+            $.ajax({
+                type: 'GET',
+                url: '@Url.Action("AllCurrentMonthToMonth")',
+                dataType: 'json',
+                success: function (data) {
+                    setDonutGraph(data);
+                },
+                error: function (err) {
+                    //alert(err);
+                }
+            });
+
+            function getDayToDay(data) {
+
+                Morris.Bar({
+                    element: 'morris-bar-chart',
+                    data: data,
+                    xkey: 'Tanggal',
+                    ykeys: ['Count'],
+                    labels: ['Count'],
+                    hideHover: 'auto',
+                    resize: true,
+                    barColors: ['#1ab394'],
+                });
+            }
+
+            function getDayToDayOpen(data) {
+
+                Morris.Bar({
+                    element: 'morris-bar-chart2',
+                    data: data,
+                    xkey: 'Tanggal',
+                    ykeys: ['Open'],
+                    labels: ['Open'],
+                    hideHover: 'auto',
+                    resize: true,
+                    barColors: ['#1ab394'],
+                });
+            }
+
+            function getDayToDayClosed(data) {
+                Morris.Bar({
+                    element: 'morris-bar-chart3',
+                    data: data,
+                    xkey: 'Tanggal',
+                    ykeys: ['Closed'],
+                    labels: ['Closed'],
+                    hideHover: 'auto',
+                    resize: true,
+                    barColors: ['#1ab394'],
+                });
+            }
+
+            function getMonthToMonth(data) {
+                Morris.Bar({
+                    element: 'morris-bar-chart4',
+                    data: data,
+                    xkey: 'Tanggal',
+                    ykeys: ['Count'],
+                    labels: ['Count'],
+                    hideHover: 'auto',
+                    resize: true,
+                    barColors: ['#1ab394'],
+                });
+            }
+
+            function getMonthToMonthOpen(data) {
+                Morris.Bar({
+                    element: 'morris-bar-chart5',
+                    data: data,
+                    xkey: 'Tanggal',
+                    ykeys: ['Open'],
+                    labels: ['Open'],
+                    hideHover: 'auto',
+                    resize: true,
+                    barColors: ['#1ab394'],
+                });
+            }
+
+            function getMonthToMonthClosed(data) {
+                Morris.Bar({
+                    element: 'morris-bar-chart6',
+                    data: data,
+                    xkey: 'Tanggal',
+                    ykeys: ['Closed'],
+                    labels: ['Closed'],
+                    hideHover: 'auto',
+                    resize: true,
+                    barColors: ['#1ab394'],
+                });
+            }
+
+            function setDonutGraph(val) {
+                Morris.Donut({
+                    element: 'morris-donut-chart',
+                    data: val,
+                    resize: true,
+                    colors: ['#1ab394', '#cacaca'],
+                });
+            }
+
+            $(document).ready(function () {
+                $('#myGrid').DataTable({
+                    "ajax": {
+                        "url": "@Url.Action("GetGata")",
+                        "dataSrc": ""
+                    },
+                    dom: '<"html5buttons"B>lTfgitp',
+                    "columns": [
+                    { "data": "TicketID" },
+                    { "data": "Status" },
+                    { "data": "Owner" },
+                    { "data": "UpdatedDate" }],
+                    buttons: [
+                        { extend: 'copy' },
+                        { extend: 'csv' },
+                        { extend: 'excel', title: 'Recent Ticket Update' },
+                        { extend: 'pdf', title: 'Recent Ticket Update' },
+                        {
+                            extend: 'print',
+                            customize: function (win) {
+                                $(win.document.body).addClass('white-bg');
+                                $(win.document.body).css('font-size', '10px');
+
+                                $(win.document.body).find('table')
+                                        .addClass('compact')
+                                        .css('font-size', 'inherit');
+                            }
+                        }
+                    ]
+                });
+            });
+
+             $('#tickettypeID').change(function () {
+                $('#morris-bar-chart').empty();
+                $('#morris-bar-chart2').empty();
+                $('#morris-bar-chart3').empty();
+                $('#morris-bar-chart4').empty();
+                $('#morris-bar-chart5').empty();
+                $('#morris-bar-chart6').empty();
+                $('#morris-donut-chart').empty();
+                $('#myGrid').empty();
+
+                var tiketTypename = $('#tickettypeID').find(":selected").val();
+
+                $.ajax({
+                    type: 'GET',
+                    url: '@Url.Action("DayToDay")',
+                    dataType: 'json',
+                    data: {
+                        ticketType: tiketTypename
+                    },
+                    success: function (data) {
+                        getDayToDay(data);
+                        getDayToDayOpen(data);
+                        getDayToDayClosed(data);
+                    },
+                    error: function (err) {
+                        //alert(err);
+                    }
+                });
+
+
+            $.ajax({
+                type: 'GET',
+                url: '@Url.Action("MonthToMonth")',
+                dataType: 'json',
+                data: {
+                    ticketType: tiketTypename
+                },
+                success: function (data) {
+                    getMonthToMonth(data);
+                    getMonthToMonthOpen(data);
+                    getMonthToMonthClosed(data);
+                },
+                error: function (err) {
+                    //alert(err);
+                }
+            });
+
+
+            $.ajax({
+                type: 'GET',
+                url: '@Url.Action("AllCurrentMonthToMonth")',
+                dataType: 'json',
+                data: {
+                    ticketType: tiketTypename
+                },
+                success: function (data) {
+                },
+                error: function (err) {
+                    //alert(err);
+                }
+            });
+
+            function getDayToDay(data) {
+                Morris.Bar({
+                    element: 'morris-bar-chart',
+                    data: data,
+                    xkey: 'Tanggal',
+                    ykeys: ['Count'],
+                    labels: ['Count'],
+                    hideHover: 'auto',
+                    resize: true,
+                    barColors: ['#1ab394'],
+                });
+            }
+
+            function getDayToDayOpen(data) {
+                Morris.Bar({
+                    element: 'morris-bar-chart2',
+                    data: data,
+                    xkey: 'Tanggal',
+                    ykeys: ['Open'],
+                    labels: ['Open'],
+                    hideHover: 'auto',
+                    resize: true,
+                    barColors: ['#1ab394'],
+                });
+            }
+
+            function getDayToDayClosed(data) {
+                Morris.Bar({
+                    element: 'morris-bar-chart3',
+                    data: data,
+                    xkey: 'Tanggal',
+                    ykeys: ['Closed'],
+                    labels: ['Closed'],
+                    hideHover: 'auto',
+                    resize: true,
+                    barColors: ['#1ab394'],
+                });
+            }
+
+            function getMonthToMonth(data) {
+                Morris.Bar({
+                    element: 'morris-bar-chart4',
+                    data: data,
+                    xkey: 'Tanggal',
+                    ykeys: ['Count'],
+                    labels: ['Count'],
+                    hideHover: 'auto',
+                    resize: true,
+                    barColors: ['#1ab394'],
+                });
+            }
+
+            function getMonthToMonthOpen(data) {
+                Morris.Bar({
+                    element: 'morris-bar-chart5',
+                    data: data,
+                    xkey: 'Tanggal',
+                    ykeys: ['Open'],
+                    labels: ['Open'],
+                    hideHover: 'auto',
+                    resize: true,
+                    barColors: ['#1ab394'],
+                });
+            }
+
+            function getMonthToMonthClosed(data) {
+                Morris.Bar({
+                    element: 'morris-bar-chart6',
+                    data: data,
+                    xkey: 'Tanggal',
+                    ykeys: ['Closed'],
+                    labels: ['Closed'],
+                    hideHover: 'auto',
+                    resize: true,
+                    barColors: ['#1ab394'],
+                });
+            }
+
+            function setDonutGraph(val) {
+                Morris.Donut({
+                    element: 'morris-donut-chart',
+                    data: val,
+                    resize: true,
+                    colors: ['#1ab394', '#cacaca'],
+                });
+            }
+
+            $(document).ready(function () {
+                $('#myGrid').DataTable({
+                    destroy: true,
+                    "ajax": {
+                        "url": "@Url.Action("GetGata2", "Dashboards")?ticketType='" + $('#tickettypeID').find(":selected").val() + "'",
+                        "dataSrc": ""
+                    },
+                    dom: '<"html5buttons"B>lTfgitp',
+                    "columns": [
+                    { "data": "TicketID" },
+                    { "data": "Status" },
+                    { "data": "Owner" },
+                    { "data": "UpdatedDate" }],
+                    paging: false,
+                    searching: false,
+                    buttons: [
+                        { extend: 'copy' },
+                        { extend: 'csv' },
+                        { extend: 'excel', title: 'Recent Ticket Update' },
+                        { extend: 'pdf', title: 'Recent Ticket Update' },
+                        {
+                            extend: 'print',
+                            customize: function (win) {
+                                $(win.document.body).addClass('white-bg');
+                                $(win.document.body).css('font-size', '10px');
+
+                                $(win.document.body).find('table')
+                                        .addClass('compact')
+                                        .css('font-size', 'inherit');
+                            }
+                        }
+                    ]
+                });
+            });
+
+          function reloadDataTables() {
+               $('#myGrid').DataTable({
+                    "ajax": {
+                        "url": "@Url.Action("GetGata2", "Dashboards")?ticketType='" + $('#tickettypeID').find(":selected").val() + "'",
+                        "dataSrc": ""
+                    },
+                    dom: '<"html5buttons"B>lTfgitp',
+                    "columns": [
+                    { "data": "TicketID" },
+                    { "data": "Status" },
+                    { "data": "Owner" },
+                    { "data": "UpdatedDate" }],
+                    paging: false,
+                    searching: false,
+                    buttons: [
+                        { extend: 'copy' },
+                        { extend: 'csv' },
+                        { extend: 'excel', title: 'Recent Ticket Update' },
+                        { extend: 'pdf', title: 'Recent Ticket Update' },
+                        {
+                            extend: 'print',
+                            customize: function (win) {
+                                $(win.document.body).addClass('white-bg');
+                                $(win.document.body).css('font-size', '10px');
+
+                                $(win.document.body).find('table')
+                                        .addClass('compact')
+                                        .css('font-size', 'inherit');
+                            }
+                        }
+                    ]
+                });
+            }
+          });
+        });
+    </script>
+}

@@ -1,0 +1,25 @@
+﻿@model ISAT.Business.Ticket
+<div class="row">
+    <div class="col-lg-6">
+        <div class="form-group">
+            <label>Ticket Type</label>
+            @Html.DropDownListFor(m => m.TicketType, new SelectList(ISAT.Business.TicketTypeInfoList.GetTicketTypeInfoList().Select(x=>x.TicketTypeName)), "---Please Select One---", new { id = "idTicketType", name = "TicketTypeName", @class= "form-control" })
+        </div>
+        <div class="form-group">
+            <label>Subject *</label>
+            @Html.EditorFor(x => x.TicketSubject, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.TicketSubject) 
+        </div>
+        <div class="form-group">
+            <label>Description *</label>
+            @Html.TextAreaFor(x => x.TicketDescription, new { @class = "form-control", style="height:200px" })
+            @Html.ValidationMessageFor(m => m.TicketDescription) 
+        </div>
+    </div>
+    <div class="col-lg-6">
+        <div class="form-group">
+            <label>Priority *</label>
+             @Html.DropDownListFor(m => m.TicketType, new SelectList(ISAT.Business.TicketInfo.GetPriority()), "---Please Select One---", new { id = "idTicketPriority", name = "PriorityName", @class = "form-control" })
+        </div>
+    </div>
+</div>

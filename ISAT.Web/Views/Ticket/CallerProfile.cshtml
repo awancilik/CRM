@@ -1,0 +1,242 @@
+﻿@model ISAT.Business.CustomerInfo
+@{
+    ViewBag.Title = "Caller Profile";
+}
+
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h1>Rendi</h1>
+                    <br />
+                    <h5>Profile</h5>
+                    <div class="ibox-content">
+                        <button class="btn btn-sm btn-primary" type="submit" id="btnAddNewTicket"><strong>Add New Ticket</strong></button>
+                        <button class="btn btn-sm btn-primary" type="submit"><strong>Close</strong></button>
+                        <div class="form-horizontal">
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">Nama :</label>
+                                <div class="col-sm-2"><label class="control-label">@Model.FirstName &nbsp; @Model.LastName</label></div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">Email :</label>
+                                <div class="col-sm-2"><label class="control-label">@Model.Email</label></div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">Agent ID :</label>
+                                <div class="col-sm-2"><label class="control-label">agent01</label></div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">Role :</label>
+                                <div class="col-sm-2"><label class="control-label">Agent/Supervisor/Officer</label></div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">Phone Number :</label>
+                                <div class="col-sm-2"><label class="control-label">0856123456789</label></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="text-center m-t-lg">
+                <h1>
+                    Open Tickets
+                </h1>
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        <div class="ibox-tools">
+                            <a class="collapse-link">
+                                <i class="fa fa-chevron-up"></i>
+                            </a>
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                <i class="fa fa-wrench"></i>
+                            </a>
+                            <ul class="dropdown-menu dropdown-user">
+                                <li>
+                                    <a href="#">Config option 1</a>
+                                </li>
+                                <li>
+                                    <a href="#">Config option 2</a>
+                                </li>
+                            </ul>
+                            <a class="close-link">
+                                <i class="fa fa-times"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="ibox-content">
+                        <table class="table  table-striped table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>Ticket Subject</th>
+                                    <th>Requester</th>
+                                    <th>Created Date</th>
+                                    <th>Last Updated</th>
+                                    <th>Priority</th>
+                                    <th>Ticket Owner</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Pembuatan SIUP PT</td>
+                                    <td>Rendi</td>
+                                    <td>15 April 2017 15:05</td>
+                                    <td>15 April 2017 17:05</td>
+                                    <td>Urgent</td>
+                                    <td>Agent 01</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="text-center m-t-lg">
+                <h1>
+                    Tickets History
+                </h1>
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        <div class="ibox-tools">
+                            <a class="collapse-link">
+                                <i class="fa fa-chevron-up"></i>
+                            </a>
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                <i class="fa fa-wrench"></i>
+                            </a>
+                            <ul class="dropdown-menu dropdown-user">
+                                <li>
+                                    <a href="#">Config option 1</a>
+                                </li>
+                                <li>
+                                    <a href="#">Config option 2</a>
+                                </li>
+                            </ul>
+                            <a class="close-link">
+                                <i class="fa fa-times"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="ibox-content">
+                        <table class="table  table-striped table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>Ticket Subject</th>
+                                    <th>Status</th>
+                                    <th>Created Date</th>
+                                    <th>Close Date</th>
+                                    <th>Priority</th>
+                                    <th>Ticket Owner</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Pembuatan SIUP PT</td>
+                                    <td>Close</td>
+                                    <td>14 April 2017</td>
+                                    <td>15 April 2017</td>
+                                    <td>Urgent</td>
+                                    <td>Agent 01</td>
+                                </tr>
+                                <tr>
+                                    <td>Pembuatan SIUP PT</td>
+                                    <td>Close</td>
+                                    <td>14 April 2017 15:05</td>
+                                    <td>15 April 2017 17:05</td>
+                                    <td>Urgent</td>
+                                    <td>Agent 01</td>
+                                </tr>
+                                <tr>
+                                    <td>Pembuatan SIUP PT</td>
+                                    <td>Close</td>
+                                    <td>14 April 2017 15:05</td>
+                                    <td>15 April 2017 17:05</td>
+                                    <td>Urgent</td>
+                                    <td>Agent 01</td>
+                                </tr>
+                                <tr>
+                                    <td>Pembuatan SIUP PT</td>
+                                    <td>Close</td>
+                                    <td>14 April 2017 15:05</td>
+                                    <td>15 April 2017 17:05</td>
+                                    <td>Urgent</td>
+                                    <td>Agent 01</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Styles {
+    @Styles.Render("~/Content/plugins/dataTables/dataTablesStyles")
+}
+
+@section Scripts {
+    @Scripts.Render("~/plugins/dataTables")
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('.dataTables-example').DataTable({
+                pageLength: 10,
+                dom: '<"html5buttons"B>lTfgitp',
+                buttons: [
+                    { extend: 'copy' },
+                    { extend: 'csv' },
+                    { extend: 'excel', title: 'ExampleFile' },
+                    { extend: 'pdf', title: 'ExampleFile' },
+                    {
+                        extend: 'print',
+                        customize: function (win) {
+                            $(win.document.body).addClass('white-bg');
+                            $(win.document.body).css('font-size', '10px');
+
+                            $(win.document.body).find('table')
+                                    .addClass('compact')
+                                    .css('font-size', 'inherit');
+                        }
+                    }
+                ]
+            });
+
+            $('.dataTables-example2').DataTable({
+                pageLength: 10,
+                dom: '<"html5buttons"B>lTfgitp',
+                buttons: [
+                    { extend: 'copy' },
+                    { extend: 'csv' },
+                    { extend: 'excel', title: 'ExampleFile' },
+                    { extend: 'pdf', title: 'ExampleFile' },
+                    {
+                        extend: 'print',
+                        customize: function (win) {
+                            $(win.document.body).addClass('white-bg');
+                            $(win.document.body).css('font-size', '10px');
+
+                            $(win.document.body).find('table')
+                                    .addClass('compact')
+                                    .css('font-size', 'inherit');
+                        }
+                    }
+                ]
+            });
+
+            $('#btnAddNewTicket').click(function () {
+                window.location.href = '@Url.Action("CreateTicket", "Ticket")';
+            });
+        });
+    </script>
+}

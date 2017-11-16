@@ -1,0 +1,386 @@
+﻿@model ISAT.Web.ViewModel.Ticket
+@{
+    ViewBag.Title = "CreateTicket";
+}
+
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="ibox">
+                <div class="ibox-title">
+                    @if (IsPost && ViewBag.SuccessMsg != null)
+                    {
+                        <div class="alert alert-success alert-dismissable">
+                            <button aria-hidden="true" data-dismiss="alert" class="close" type="button">×</button>
+                            You have update ticket successfully.
+                        </div>
+                    }
+                    <h5>Close Ticket </h5>
+                    <div class="ibox-tools">
+                        <a class="collapse-link">
+                            <i class="fa fa-chevron-up"></i>
+                        </a>
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                            <i class="fa fa-wrench"></i>
+                        </a>
+                        <ul class="dropdown-menu dropdown-user">
+                            <li>
+                                <a href="#">Config option 1</a>
+                            </li>
+                            <li>
+                                <a href="#">Config option 2</a>
+                            </li>
+                        </ul>
+                        <a class="close-link">
+                            <i class="fa fa-times"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="ibox-content">
+                    @using (Html.BeginForm("ClosedTicket", "Ticketing", FormMethod.Post, new { @class = "wizard-big", @id = "form", name = "newBusinessTripForm", enctype = "multipart/form-data" }))
+                    {
+                        Html.AntiForgeryToken();
+                        @Html.ValidationSummary(true)
+                        <h1>Requester</h1>
+                        <fieldset>
+                            @*@{Html.EditorForModel("123", Model.CustomerModel);}
+                                @{Html.EditorForModel("Ticketing/IndexCustomer", Model.CustomerModel);}*@
+
+                            @Html.HiddenFor(x => x.Requester.FirstName)
+                            @Html.HiddenFor(x => x.Requester.LastName)
+                            @Html.HiddenFor(x => x.Requester.Email)
+                            @Html.HiddenFor(x => x.Requester.Custno)
+                            @Html.HiddenFor(x => x.Requester.CompanyName)
+                            @Html.HiddenFor(x => x.CallerPosition)
+                            @Html.HiddenFor(x => x.Requester.CreatedBy)
+                            @Html.HiddenFor(x => x.Requester.CreatedDate)
+                            @Html.HiddenFor(x => x.Requester.UpdatedBy)
+                            @Html.HiddenFor(x => x.Requester.UpdatedDate)
+
+                            <div class="row">
+                                <div class="col-lg-8">
+                                    <div class="form-group">
+                                        <label>First Name </label>
+                                        @Html.DisplayFor(x => x.Requester.FirstName)
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Last Name</label>
+                                        @Html.DisplayFor(x => x.Requester.LastName)
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Email </label>
+                                        @Html.DisplayFor(x => x.Requester.Email)
+
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Phone Number</label>
+                                        @Html.DisplayFor(x => x.Requester.Custno)
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Company Name</label>
+                                        @Html.DisplayFor(x => x.Requester.CompanyName)
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Kedudukan</label>
+                                        @Html.DisplayFor(x => x.CallerPosition)
+                                    </div>
+                                </div>
+                                <div class="col-lg-4">
+                                    <div class="text-center">
+                                        <div style="margin-top: 20px">
+                                            <i class="fa fa-sign-in" style="font-size: 180px;color: #e5e5e5 "></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </fieldset>
+                        <h1>Ticket Detail</h1>
+                        <fieldset>
+                            @Html.HiddenFor(x => x.TicketNo)
+                            @Html.HiddenFor(x => x.TicketOwner)
+                            @Html.HiddenFor(x => x.TicketType)
+                            @Html.HiddenFor(x => x.TicketDesc)
+                            @Html.HiddenFor(x => x.TicketStatus)
+                            @Html.HiddenFor(x => x.TicketSubject)
+                            @Html.HiddenFor(x => x.Priority)
+                            @Html.HiddenFor(x => x.Escalation)
+                            @Html.HiddenFor(x => x.CreatedBy)
+                            @Html.HiddenFor(x => x.CreatedDate)
+                            @Html.HiddenFor(x => x.UpdatedBy)
+                            @Html.HiddenFor(x => x.UpdatedDate)
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label>Ticket Type</label>
+                                        @Html.DisplayFor(x => x.TicketType)
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Subject</label>
+                                        @Html.DisplayFor(x => x.TicketSubject)
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Description</label>
+                                        @Html.DisplayFor(x => x.TicketDesc)
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label>Bagian</label>
+                                        @Html.DisplayFor(x => x.Priority)
+                                    </div>
+                                </div>
+                            </div>
+
+                        </fieldset>
+                        <h1>Solutions</h1>
+                        <fieldset>
+
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="ibox float-e-margins">
+                                        <div class="ibox-content">
+                                            <table id="tabelMaster" class="table table-striped table-bordered table-hover dataTables-example">
+                                                <thead>
+                                                    <tr>
+                                                        <th id="Solution">Solution</th>
+                                                        <th>Time</th>
+                                                        <th>UpdatedBy</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    @if (Model.Solution != null)
+                                                    {
+                                                        for (int i = 0; i < Model.Solution.Count; i++)
+                                                        {
+                                                            <tr>
+                                                                <td>
+                                                                    @Html.HiddenFor(x => x.Solution[i].Solution)
+                                                                    @Html.DisplayFor(x => x.Solution[i].Solution)
+                                                                </td>
+                                                                <td>
+                                                                    @Html.HiddenFor(x => x.Solution[i].UpdateDate)
+                                                                    @Html.DisplayFor(x => x.Solution[i].UpdateDate)
+                                                                </td>
+                                                                <td>
+                                                                    @Html.HiddenFor(x => x.Solution[i].UpdateBy)
+                                                                    @Html.DisplayFor(x => x.Solution[i].UpdateBy)
+                                                                </td>
+                                                            </tr>
+                                                        }
+                                                    }
+
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <br />
+
+                            @*<table id="tableListClone" style="display: none;">*@
+                            <table id="tableListClone" border="1">
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <input type="hidden" id="cloneHowToSolving" />
+                                            <text id="HowToSolvingText" />
+                                        </td>
+                                        <td>
+                                            <input type="hidden" id="cloneUpdatedDate" />
+                                            <text id="UpdatedDateText" />
+                                        </td>
+                                        <td>
+                                            <input type="hidden" id="cloneUpdatedBy" />
+                                            <text id="UpdatedByText" />
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </fieldset>
+                    }
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Styles {
+    @Styles.Render("~/Content/plugins/iCheck/iCheckStyles")
+    @Styles.Render("~/plugins/wizardStepsStyles")
+    @Styles.Render("~/Content/plugins/dataTables/dataTablesStyles")
+}
+
+@section Scripts {
+    @Scripts.Render("~/plugins/wizardSteps")
+    @Scripts.Render("~/plugins/iCheck")
+    @Scripts.Render("~/plugins/validate")
+    @Scripts.Render("~/plugins/dataTables")
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#form").steps({
+                bodyTag: "fieldset",
+                onStepChanging: function (event, currentIndex, newIndex) {
+                    // Always allow going backward even if the current step contains invalid fields!
+                    if (currentIndex > newIndex) {
+                        return true;
+                    }
+
+                    // Forbid suppressing "Warning" step if the user is to young
+                    if (newIndex === 3 && Number($("#age").val()) < 18) {
+                        return false;
+                    }
+
+                    var form = $(this);
+
+                    // Clean up if user went backward before
+                    if (currentIndex < newIndex) {
+                        // To remove error styles
+                        $(".body:eq(" + newIndex + ") label.error", form).remove();
+                        $(".body:eq(" + newIndex + ") .error", form).removeClass("error");
+                    }
+
+                    // Disable validation on fields that are disabled or hidden.
+                    //form.validate().settings.ignore = ":disabled,:hidden";
+
+                    // Start validation; Prevent going forward if false
+                    return form.valid();
+                },
+                onStepChanged: function (event, currentIndex, priorIndex) {
+                    // Suppress (skip) "Warning" step if the user is old enough.
+                    if (currentIndex === 2 && Number($("#age").val()) >= 18) {
+                        $(this).steps("next");
+                    }
+
+                    // Suppress (skip) "Warning" step if the user is old enough and wants to the previous step.
+                    if (currentIndex === 2 && priorIndex === 3) {
+                        $(this).steps("previous");
+                    }
+                },
+                onFinishing: function (event, currentIndex) {
+                    var form = $(this);
+
+                    // Disable validation on fields that are disabled.
+                    // At this point it's recommended to do an overall check (mean ignoring only disabled fields)
+                    form.validate().settings.ignore = ":disabled";
+
+                    // Start validation; Prevent form submission if false
+                    return form.valid();
+                },
+                onFinished: function (event, currentIndex) {
+                    var form = $(this);
+
+                    // Submit form input
+                    form.submit();
+                }
+            }).validate({
+                errorPlacement: function (error, element) {
+                    element.before(error);
+                },
+                rules: {
+                    confirm: {
+                        equalTo: "#password"
+                    }
+                }
+            });
+
+            $("#addSolution").click(function () {
+                var values = $("#txtArea").val();
+                if (values != '') {
+                    var tabletemp = $('#tableListClone');
+                    var row = tabletemp.html().replace("<tbody>", "  ");
+                    row = row.replace("</tbody>", "  ");
+
+                    $('#cloneHowToSolving').val(values);
+                    $('#HowToSolvingText').html(values);
+
+                    var tgl = dateFormat(new Date(), "mm/dd/yy, h:MM:ss TT");;
+                    $('#cloneUpdatedDate').val(tgl);
+                    $('#UpdatedDateText').text(tgl);
+
+                    $('#cloneUpdatedBy').val('@User.Identity.Name');
+                    $('#UpdatedByText').text('@User.Identity.Name');
+
+                    $('#tableListClone tbody > tr').clone(true).insertAfter('#tabelMaster tbody>tr:last');
+                    resetTableName();
+
+                    $("#txtArea").val('');
+                    $('#tableListClone > tbody > tr').each(function (index, item) {
+                        $(item).remove();
+                    });
+                    $('#tableListClone').find('tbody').append(row);
+
+                }
+
+            });
+
+            function resetTableName() {
+                var total = 0;
+                var rowIndex = 0;
+                $('#tabelMaster > tbody > tr > td').each(function (index, item) {
+                    var className = $(this).attr('class');
+                    if (className == 'dataTables_empty') {
+                        $(this).parent("tr:first").remove();
+                    }
+                });
+                $('#tabelMaster > tbody > tr').each(function (index, item) {
+
+                    $(this).find('input[type=hidden]').each(function (x, cell) {
+                        var idcell = $(cell).attr('id');
+                        if (idcell.indexOf("HowToSolving") >= 0) {
+                            $(cell).attr("name", "Solution[" + (rowIndex) + "].Solution");
+                            $(cell).attr("id", "Solution_" + (rowIndex) + "_HowToSolving");
+                            $('#HowToSolvingText').attr("id", "Text_" + (rowIndex) + "_HowToSolving");
+
+                        }
+                        if (idcell.indexOf("UpdatedDate") >= 0) {
+                            $(cell).attr("name", "Solution[" + (rowIndex) + "].UpdateDate");
+                            $(cell).attr("id", "Solution_" + (rowIndex) + "_UpdateDate");
+                            $('#UpdatedDateText').attr("id", "Text_" + (rowIndex) + "_UpdatedDate");
+                        }
+                        if (idcell.indexOf("UpdatedBy") >= 0) {
+                            $(cell).attr("name", "Solution[" + (rowIndex) + "].UpdateBy");
+                            $(cell).attr("id", "Solution_" + (rowIndex) + "_UpdateBy");
+                            $('#UpdatedByText').attr("id", "Text_" + (rowIndex) + "_UpdatedByText");
+                        }
+                    });
+                    $(this).attr('role', 'row');
+                    if (index % 2) {
+                        $(this).attr('class', 'odd');
+                    } else {
+                        $(this).attr('class', 'even');
+                    }
+
+
+
+                    rowIndex++;
+                });
+            }
+
+            $('.dataTables-example').DataTable({
+                pageLength: 10,
+                dom: '<"html5buttons"B>lTfgitp',
+                buttons: [
+                    { extend: 'copy' },
+                    { extend: 'csv' },
+                    { extend: 'excel', title: '@Model.TicketOwner' },
+                    { extend: 'pdf', title: 'Solution' },
+                    {
+                        extend: 'print',
+                        customize: function (win) {
+                            $(win.document.body).addClass('white-bg');
+                            $(win.document.body).css('font-size', '10px');
+
+                            $(win.document.body).find('table')
+                                    .addClass('compact')
+                                    .css('font-size', 'inherit');
+                        }
+                    }
+                ]
+            });
+        });
+    </script>
+}
+
+

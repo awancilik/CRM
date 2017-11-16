@@ -1,0 +1,85 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "APILA", "APILA\APILA.csproj", "{5C79F536-B709-4A22-B48A-720721D256CB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ISAT.Business", "ISAT.Business\ISAT.Business.csproj", "{A4004483-6AB0-45B9-8702-AAB4652812A0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ISAT.Web.CRM", "ISAT.Web\ISAT.Web.CRM.csproj", "{86CADB26-5817-46B6-88C7-76D5753722C3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestingObject", "TestingObject\TestingObject.csproj", "{DF549690-4D7F-4F62-B992-89E1BCA90C65}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UCEngine", "RunUCAPI\UCEngine.csproj", "{E9C3767D-BE2F-4C72-A093-9CE4B71141DD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UCAPIEngine", "UCAPIEngine\UCAPIEngine.csproj", "{0DBA44A6-BD8D-4A85-BFA3-F2176FA86758}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ISAT.WCF", "ISAT.WCF\ISAT.WCF.csproj", "{88CF544F-0E97-4B16-819C-56C36AF75131}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5C79F536-B709-4A22-B48A-720721D256CB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5C79F536-B709-4A22-B48A-720721D256CB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5C79F536-B709-4A22-B48A-720721D256CB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5C79F536-B709-4A22-B48A-720721D256CB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A4004483-6AB0-45B9-8702-AAB4652812A0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A4004483-6AB0-45B9-8702-AAB4652812A0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A4004483-6AB0-45B9-8702-AAB4652812A0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A4004483-6AB0-45B9-8702-AAB4652812A0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{86CADB26-5817-46B6-88C7-76D5753722C3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{86CADB26-5817-46B6-88C7-76D5753722C3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{86CADB26-5817-46B6-88C7-76D5753722C3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{86CADB26-5817-46B6-88C7-76D5753722C3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DF549690-4D7F-4F62-B992-89E1BCA90C65}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DF549690-4D7F-4F62-B992-89E1BCA90C65}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DF549690-4D7F-4F62-B992-89E1BCA90C65}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DF549690-4D7F-4F62-B992-89E1BCA90C65}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E9C3767D-BE2F-4C72-A093-9CE4B71141DD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E9C3767D-BE2F-4C72-A093-9CE4B71141DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E9C3767D-BE2F-4C72-A093-9CE4B71141DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E9C3767D-BE2F-4C72-A093-9CE4B71141DD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0DBA44A6-BD8D-4A85-BFA3-F2176FA86758}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0DBA44A6-BD8D-4A85-BFA3-F2176FA86758}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0DBA44A6-BD8D-4A85-BFA3-F2176FA86758}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0DBA44A6-BD8D-4A85-BFA3-F2176FA86758}.Release|Any CPU.Build.0 = Release|Any CPU
+		{88CF544F-0E97-4B16-819C-56C36AF75131}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{88CF544F-0E97-4B16-819C-56C36AF75131}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{88CF544F-0E97-4B16-819C-56C36AF75131}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{88CF544F-0E97-4B16-819C-56C36AF75131}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 8
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://paulustejokusumo.visualstudio.com/
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = APILA\\APILA.csproj
+		SccProjectName1 = APILA
+		SccLocalPath1 = APILA
+		SccProjectUniqueName2 = ISAT.Business\\ISAT.Business.csproj
+		SccProjectName2 = ISAT.Business
+		SccLocalPath2 = ISAT.Business
+		SccProjectUniqueName3 = ISAT.Web\\ISAT.Web.CRM.csproj
+		SccProjectName3 = ISAT.Web
+		SccLocalPath3 = ISAT.Web
+		SccProjectUniqueName4 = TestingObject\\TestingObject.csproj
+		SccProjectName4 = TestingObject
+		SccLocalPath4 = TestingObject
+		SccProjectUniqueName5 = RunUCAPI\\UCEngine.csproj
+		SccProjectName5 = RunUCAPI
+		SccLocalPath5 = RunUCAPI
+		SccProjectUniqueName6 = UCAPIEngine\\UCAPIEngine.csproj
+		SccProjectName6 = UCAPIEngine
+		SccLocalPath6 = UCAPIEngine
+		SccProjectUniqueName7 = ISAT.WCF\\ISAT.WCF.csproj
+		SccProjectName7 = ISAT.WCF
+		SccLocalPath7 = ISAT.WCF
+	EndGlobalSection
+EndGlobal

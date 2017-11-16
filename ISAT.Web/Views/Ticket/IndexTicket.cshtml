@@ -1,0 +1,283 @@
+﻿@model ISAT.Business.Ticket
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+        <div class="col-lg-4">
+            <div class="ibox float-e-margins"> 
+                <div class="ibox-title">
+                    <h5>Requester</h5>
+                    <div class="ibox-tools">
+                        <a class="collapse-link">
+                            <i class="fa fa-chevron-up"></i>
+                        </a>
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                            <i class="fa fa-wrench"></i>
+                        </a>
+                        <ul class="dropdown-menu dropdown-user">
+                            <li>
+                                <a href="#">Config option 1</a>
+                            </li>
+                            <li>
+                                <a href="#">Config option 2</a>
+                            </li>
+                        </ul>
+                        <a class="close-link">
+                            <i class="fa fa-times"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="ibox-content">
+                    <div class="form-group">
+                        <label>Nama </label>
+                        <label>:</label>
+                        <label>Rendi</label>
+                    </div>
+                    <div class="form-group">
+                        <label>Email</label>
+                        <label>:</label>
+                        <label>rendi@clnydigital.com</label>
+                    </div>
+                    <div class="form-group">
+                        <label>Phone Number</label>
+                        <label>:</label>
+                        <label>085624480777</label>
+                    </div>
+                    <div class="form-group">
+                        <label>Company Name</label>
+                        <label>:</label>
+                        <label>Colony Digital</label>
+                    </div>
+                    <div class="form-group">
+                        <label>Ticket Type </label>
+                        <label>: </label>
+                        <label>Question </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-4">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>Ticket Detail</h5>
+                    <div class="ibox-tools">
+                        <a class="collapse-link">
+                            <i class="fa fa-chevron-up"></i>
+                        </a>
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                            <i class="fa fa-wrench"></i>
+                        </a>
+                        <ul class="dropdown-menu dropdown-user">
+                            <li>
+                                <a href="#">Config option 1</a>
+                            </li>
+                            <li>
+                                <a href="#">Config option 2</a>
+                            </li>
+                        </ul>
+                        <a class="close-link">
+                            <i class="fa fa-times"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="ibox-content">
+                    <div class="form-group">
+                        <label>Subject</label>
+                        <label>:</label>
+                        <label>Pengajuan Pembuatan SIUP PT</label>
+                    </div>
+                    <div class="form-group">
+                        <label>Description *</label>
+                        <input id="surname" name="surname" type="text" class="form-control required">
+                    </div>
+                    <div class="form-group">
+                        <label>Priority</label>
+                        <label>:</label>
+                        <label>Urgent</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-4">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>Requester</h5>
+                    <div class="ibox-tools">
+                        <a class="collapse-link">
+                            <i class="fa fa-chevron-up"></i>
+                        </a>
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                            <i class="fa fa-wrench"></i>
+                        </a>
+                        <ul class="dropdown-menu dropdown-user">
+                            <li>
+                                <a href="#">Config option 1</a>
+                            </li>
+                            <li>
+                                <a href="#">Config option 2</a>
+                            </li>
+                        </ul>
+                        <a class="close-link">
+                            <i class="fa fa-times"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="ibox-content">
+                    <table class="table  table-striped table-bordered">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Solution</th>
+                                <th>Time</th>
+                                <th>UpdatedBy</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>Mark</td>
+                                <td>Otto</td>
+                                <td>mdo</td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>Jacob</td>
+                                <td>Thornton</td>
+                                <td>fat</td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>Larry</td>
+                                <td>the Bird</td>
+                                <td>twitter</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <button class="btn btn-sm btn-primary" type="submit"><strong>Add Solution</strong></button>
+                    <br /> <br />
+                    <div class="form-group">
+                        <label>Escalated to *</label>
+                        Officer 1
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="text-center m-t-lg">
+                <button class="btn btn-sm btn-primary" type="submit"><strong>Update</strong></button>
+                <button class="btn btn-sm btn-primary" type="submit"><strong>Close Ticket</strong></button>
+                <button class="btn btn-sm btn-primary" type="submit"><strong>Cancel</strong></button>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="text-center m-t-lg">
+                <h1>
+                    Ticket History
+                </h1>
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        @*<h5>Open Ticket</h5>*@
+                        <div class="ibox-tools">
+                            <a class="collapse-link">
+                                <i class="fa fa-chevron-up"></i>
+                            </a>
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                <i class="fa fa-wrench"></i>
+                            </a>
+                            <ul class="dropdown-menu dropdown-user">
+                                <li>
+                                    <a href="#">Config option 1</a>
+                                </li>
+                                <li>
+                                    <a href="#">Config option 2</a>
+                                </li>
+                            </ul>
+                            <a class="close-link">
+                                <i class="fa fa-times"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="ibox-content">
+                        <table class="table table-striped table-bordered table-hover">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Activity</th>
+                                    <th>Date</th>
+                                    <th>Time</th>
+                                    <th>UpdatedBy</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>1</td>
+                                    <td>Solution Update</td>
+                                    <td>16 Apr 2017</td>
+                                    <td>11:45</td>
+                                    <td>Officer 01</td>
+                                </tr>
+                                <tr>
+                                    <td>2</td>
+                                    <td>Escalated</td>
+                                    <td>16 Apr 2017</td>
+                                    <td>10:00</td>
+                                    <td>Agent 01</td>
+                                </tr>
+                                <tr>
+                                    <td>3</td>
+                                    <td>Created</td>
+                                    <td>Larry</td>
+                                    <td>16:03</td>
+                                    <td>Agent 01</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Styles {
+    @Styles.Render("~/Content/plugins/dataTables/dataTablesStyles")
+}
+
+@section Scripts {
+    @Scripts.Render("~/plugins/dataTables")
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            //$('.dataTables-example').DataTable({
+            //    pageLength: 10,
+            //    dom: '<"html5buttons"B>lTfgitp',
+            //    buttons: [
+            //        { extend: 'copy' },
+            //        { extend: 'csv' },
+            //        { extend: 'excel', title: 'ExampleFile' },
+            //        { extend: 'pdf', title: 'ExampleFile' },
+            //        {
+            //            extend: 'print',
+            //            customize: function (win) {
+            //                $(win.document.body).addClass('white-bg');
+            //                $(win.document.body).css('font-size', '10px');
+
+            //                $(win.document.body).find('table')
+            //                        .addClass('compact')
+            //                        .css('font-size', 'inherit');
+            //            }
+            //        }
+            //    ]
+            //});
+        });
+    </script>
+}

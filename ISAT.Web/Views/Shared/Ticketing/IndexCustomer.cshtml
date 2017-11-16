@@ -1,0 +1,39 @@
+﻿@model ISAT.Business.Customer
+<div class="row">
+    <div class="col-lg-8">
+        <div class="form-group">
+            <label>First Name editor*</label>
+            @Html.EditorFor(x=>x.FirstName, new { @class= "form-control" }) 
+            @Html.ValidationMessageFor(m => m.FirstName)
+        </div>
+        <div class="form-group">
+            <label>Last Name</label>
+            @Html.EditorFor(x => x.LastName, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.LastName) 
+        </div>
+        <div class="form-group">
+            <label>Email *</label>
+            @Html.EditorFor(x => x.Email, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.Email)
+            
+        </div>
+        <div class="form-group">
+            <label>Phone Number</label>
+            @Html.EditorFor(x => x.CustNo, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.CustNo)
+        </div>
+        <div class="form-group">
+            <label>Company Name</label>
+            @Html.EditorFor(x => x.CompanyName, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.CompanyName)
+        </div>
+       
+    </div>
+    <div class="col-lg-4">
+        <div class="text-center">
+            <div style="margin-top: 20px">
+                <i class="fa fa-sign-in" style="font-size: 180px;color: #e5e5e5 "></i>
+            </div>
+        </div>
+    </div>
+</div>

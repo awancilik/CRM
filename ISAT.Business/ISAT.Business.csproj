@@ -1,0 +1,103 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{A4004483-6AB0-45B9-8702-AAB4652812A0}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ISAT.Business</RootNamespace>
+    <AssemblyName>ISAT.Business</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Csla">
+      <HintPath>..\packages\CSLA\Csla.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Data, Version=6.9.8.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\MySQL Connector\6.9.9\MySql.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Configuration.Install" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Agent.cs" />
+    <Compile Include="AgentInfo.cs" />
+    <Compile Include="AgentInfoList.cs" />
+    <Compile Include="AgentList.cs" />
+    <Compile Include="Customer.cs" />
+    <Compile Include="CustomerInfo.cs" />
+    <Compile Include="CustomerInfoList.cs" />
+    <Compile Include="CustomerList.cs" />
+    <Compile Include="DatabaseManager.cs" />
+    <Compile Include="Division.cs" />
+    <Compile Include="DivisionInfo.cs" />
+    <Compile Include="DivisionInfoList.cs" />
+    <Compile Include="DivisionList.cs" />
+    <Compile Include="ForgotPassword.cs" />
+    <Compile Include="GeneralEnum.cs" />
+    <Compile Include="LogActivity.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SequenceNumber.cs" />
+    <Compile Include="SetLoginId.cs" />
+    <Compile Include="Ticket.cs" />
+    <Compile Include="TicketHistory.cs" />
+    <Compile Include="TicketHistoryInfo.cs" />
+    <Compile Include="TicketHistoryInfoList.cs" />
+    <Compile Include="TicketInfo.cs" />
+    <Compile Include="TicketInfoList.cs" />
+    <Compile Include="Ticketing.cs" />
+    <Compile Include="TicketList.cs" />
+    <Compile Include="TicketNo.cs" />
+    <Compile Include="TicketSolution.cs" />
+    <Compile Include="TicketType.cs" />
+    <Compile Include="TicketTypeDetail.cs" />
+    <Compile Include="TicketTypeDetailInfo.cs" />
+    <Compile Include="TicketTypeDetailInfoList.cs" />
+    <Compile Include="TicketTypeInfo.cs" />
+    <Compile Include="TicketTypeInfoList.cs" />
+    <Compile Include="TicketTypeList.cs" />
+    <Compile Include="UserInfo.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

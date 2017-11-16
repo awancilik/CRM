@@ -1,0 +1,74 @@
+﻿@{
+    ViewBag.Title = "Index Export";
+}
+<form method="post" action="@Url.Action("IndexExport","Export")" id="filterForm">
+    <div class="wrapper wrapper-content animated fadeInRight">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        <h1>Export Data</h1>
+                        <div class="ibox-content">
+                            <div class="form-horizontal">
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">Month :</label>
+                                    <div class="col-sm-10">
+                                        <select name="month" class="form-control">
+                                            <option> - Month - </option>
+                                            <option value="1">January</option>
+                                            <option value="2">Febuary</option>
+                                            <option value="3">March</option>
+                                            <option value="4">April</option>
+                                            <option value="5">May</option>
+                                            <option value="6">June</option>
+                                            <option value="7">July</option>
+                                            <option value="8">August</option>
+                                            <option value="9">September</option>
+                                            <option value="10">October</option>
+                                            <option value="11">November</option>
+                                            <option value="12">December</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">Year :</label>
+                                    <div class="col-sm-10">
+                                        <select name="year" class="form-control">
+                                            <option> - Year - </option>
+                                            @{
+                                                for (int i = DateTime.Now.Year - 5; i < DateTime.Now.Year + 5; i++)
+                                                {
+                                                    <option value="@i">@i</option>
+                                                }
+                                            }
+
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">Ticket Subject :</label>
+                                    <div class="col-sm-10">
+                                        <select id="tickettypeID" class="form-control required" name="ticketSubject">
+                                            <option value="">---Please Select One---</option>
+                                            @foreach (var item in ISAT.Business.TicketTypeInfoList.GetTicketTypeInfoList())
+                                            {
+                                                <option value="@item.TicketTypeName">@item.TicketTypeName</option>
+                                            }
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-sm-4 col-sm-offset-2">
+                                        <button class="btn btn-primary" type="submit">Download</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+
+
